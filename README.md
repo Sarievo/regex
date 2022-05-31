@@ -8,11 +8,18 @@ import kotlin.math.roundToInt
 
 class Solution {
     fun discountPrices(sentence: String, discount: Int): String {
-        val regex = """(?<!\S)\$\d+(\.\d+)?(?!\S)""".toRegex()
-        val replaced = regex.replace(sentence) { m ->
-            String.format("$%.2f", m.value.trim().substring(1).toLong() * (100 - discount) / 100.0)
+        return """(?<!\S)\$\d+(\.\d+)?(?!\S)""".toRegex()
+                .replace(sentence) { m ->
+            String.format("$%.2f",
+                m.value.trim()
+                    .substring(1)
+                    .toLong() * (100 - discount) / 100.0)
         }
-        return replaced
+//        val regex = """(?<!\S)\$\d+(\.\d+)?(?!\S)""".toRegex()
+//        val replaced = regex.replace(sentence) { m ->
+//            String.format("$%.2f", m.value.trim().substring(1).toLong() * (100 - discount) / 100.0)
+//        }
+//        return replaced
     }
 }
 
